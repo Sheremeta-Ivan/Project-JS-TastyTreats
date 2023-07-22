@@ -12,18 +12,18 @@ import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'bo
     mobileMenu.classList.toggle('is-open');
 
     const scrollLockMethod = !isOpenMenu
-      ? 'disableBodyScroll'
-      : 'enableBodyScroll';
-    bodyScrollLock[scrollLockMethod](document.body);
+      ? disableBodyScroll
+      : enableBodyScroll;
+    scrollLockMethod(document.body);
   };
 
   openMenuBtn.addEventListener('click', toggleMenu);
   closeMenuBtn.addEventListener('click', toggleMenu);
 
-  window.matchMedia('(min-width: 768px)').addEventListener('change', evt => {
+  window.matchMedia('(min-width: 768px)').addEventListener('change', (evt) => {
     if (!evt.matches) return;
     mobileMenu.classList.remove('is-open');
     openMenuBtn.setAttribute('aria-expanded', false);
-    bodyScrollLock.enableBodyScroll(document.body);
+    enableBodyScroll(document.body);
   });
 })();
