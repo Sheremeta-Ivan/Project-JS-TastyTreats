@@ -6,7 +6,7 @@ import renderItem from './renders';
 import startPagination from '../utils/pagination';
 // import { changeThemePagination } from '../utils/switchTheme';
 // import { OpenModal } from '../utils/modal-recipes';
-import { setActiveClass } from '../utils/scrollbar';
+import { setActiveClass, onClickAllCategoriesButton } from '../utils/scrollbar';
 import { fetchAreaRecipes, fetchIngredientsRecipes } from '../service/API.js';
 
 // Refs
@@ -22,11 +22,12 @@ const timeSelect = document.querySelector('.list-time');
 
 
 // Clear form button
-document.querySelector(".clear-button").addEventListener("click", function () {
+document.querySelector(".clear-button").addEventListener("click", function ({target}) {
   document.querySelector(".list-time").value = "";
   document.querySelector(".search-input").value = "";
   document.querySelector(".list-area").value = "";
   document.querySelector(".list-ingred").value = "";
+  onClickAllCategoriesButton(target);
 });
  
 
