@@ -6,3 +6,4 @@ import './js/utils/scrollbar';
 import './js/renders/renders.js';
 
 import './js/renders/search.js';
+import './js/utils/order-now-modal';
