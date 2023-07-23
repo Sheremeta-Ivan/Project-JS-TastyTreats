@@ -7,3 +7,4 @@ import './js/renders/renders.js';
 import './js/utils/mobile-menu.js';
 import './js/renders/search.js';
 import './js/renders/renderPopularRecipes';
+import './js/utils/order-now-modal';
