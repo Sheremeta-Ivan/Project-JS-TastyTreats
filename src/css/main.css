@@ -1,9 +1,8 @@
 @import url('./base/common.css');
-@import url('./layout/popular.css');
 @import url('./layout/search.css');
 @import url('./layout/all-categories.css');
-@import url('./layout/order-now-modal.css');
+@import url('./layout/rating.css');
 @import url('./layout/header.css');
-
 @import url('./components/recipte-item.css');
 @import url('./components/pagination.css');
+@import url('./layout/popular-recipes.css');

@@ -20,6 +20,19 @@ const ingredSelect = document.querySelector('.list-ingred');
 const filtersSection = document.querySelector('.input-section');
 const timeSelect = document.querySelector('.list-time');
 
+
+// Clear form button
+document.querySelector(".clear-button").addEventListener("click", function () {
+  document.querySelector(".list-time").value = "";
+  document.querySelector(".search-input").value = "";
+  document.querySelector(".list-area").value = "";
+  document.querySelector(".list-ingred").value = "";
+});
+ 
+
+
+
+
 // Vars
 
 let prevSearch = '';
@@ -81,8 +94,7 @@ async function generatAreaFiltersMarkup() {
   try {
     const filtersArea = await fetchAreaRecipes();
     return filtersArea.reduce(
-      (markup, ivent) => markup + createAreaMarkupFilters(ivent),
-      ''
+      (markup, ivent) => markup + createAreaMarkupFilters(ivent)
     );
   } catch {}
 }
@@ -92,8 +104,7 @@ async function generateIngredFiltersMarkup() {
     const filtersIngred = await fetchIngredientsRecipes();
 
     return filtersIngred.reduce(
-      (markup, ivent) => markup + createIngredMarkupFilters(ivent),
-      ''
+      (markup, ivent) => markup + createIngredMarkupFilters(ivent)
     );
   } catch {}
 }
@@ -119,14 +130,19 @@ async function createIngredFilters() {
   try {
     const ingredMarkup = await generateIngredFiltersMarkup();
     addIngridientsFilters(ingredMarkup);
+
   } catch {}
 }
 function addAreaFilters(markup) {
   areaSelect.insertAdjacentHTML('beforeend', markup);
 }
 
+// function addIngridientsFilters(markup) {
+//   ingredSelect.innerHTML = `<option value="">&nbsp;</option>` + markup;
+// }
+
 function addIngridientsFilters(markup) {
-  ingredSelect.innerHTML = `<option value="">&nbsp;</option>` + markup;
+ingredSelect.insertAdjacentHTML('beforeend', markup);
 }
 
 const debouncedOnInpit = debounce(onInput, DEBOUNCE_DELAY);
