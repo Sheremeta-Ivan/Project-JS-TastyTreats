@@ -24,11 +24,15 @@ export async function findRecipes(id) {
   return res.data;
 }
 
-export async function fetchPopularRecipes() {
-  const url = `https://tasty-treats-backend.p.goit.global/api/recipes/popular`;
-  const res = await axios.get(url);
-  return res.data;
-}
+
+export const getPopularRecipes = async function () {
+  try {
+    const response = await axios.get( `https://tasty-treats-backend.p.goit.global/api/recipes/popular`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
 
 export async function fetchAreaRecipes() {
   const url = `https://tasty-treats-backend.p.goit.global/api/areas`;
