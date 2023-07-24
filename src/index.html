@@ -15,12 +15,17 @@
   <body>
     <!-- partials -->
     <include src="./partials/header.html"></include>
-    
+
     <div class="position-wrapper container">
       <include src="./partials/all-categories.html"></include>
       <include src="./partials/popular-recipes.html"></include>
       <include src="./partials/search.html"></include>
+    </div>
+
+    <div class="backdrop-recipes is-hidden-modal">
+      <include src="./partials/modal-recipes.html"></include>
       <include src="./partials/order-now-modal.html"></include>
-    <include src="./partials/rating.html"></include>
+      <include src="./partials/rating.html"></include>
+    </div>
   </body>
 </html>
