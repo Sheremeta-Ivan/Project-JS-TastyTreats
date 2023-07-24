@@ -178,19 +178,20 @@
 
 .star-icon {
   fill: currentColor;
+  margin-left: 2px;
 }
 
 @media screen and (min-width: 768px) {
   .star-icon {
     width: 16px;
-    height: 16px;
+    height: 14px;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .star-icon {
     width: 18px;
-    height: 18px;
+    height: 14px;
   }
 }
 
