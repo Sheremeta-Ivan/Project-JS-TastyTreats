@@ -26,8 +26,9 @@
   left: 20px;
   transform: translateY(-50%);
   color: inherit;
-  /* fill: rgba(5, 5, 5, 0.50); */
 }
+
+
 
 .search-icon img {
   width: 18px;
