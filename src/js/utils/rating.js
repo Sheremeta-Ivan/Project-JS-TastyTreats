@@ -1,4 +1,4 @@
-
+// import { patchRating } from "./API";
 
 const rafs ={
     backdropModalRating : document.querySelector('.backdrop-rating'),
@@ -17,17 +17,17 @@ refs.closeModalRating.addEventListener('click', closeModalRating)
 
 
 
-// function fetchRate(evt){
-//     const target = evt.target.closest('.modal-rating-star-item');
+function fetchRate(evt){
+    const target = evt.target.closest('.modal-rating-star-item');
 
-//     if (target) {
-//       const rate = [...evt.currentTarget.children].indexOf(target) + 1;
-//       [...evt.currentTarget.children].forEach((el, i) => i <= rate - 1 ? el.classList.add('is-rated') : el.classList.remove('is-rated')
-//       );
-//       refs.modalRatingValue.textContent = rate.toFixed(1);
-//       refs.ratingRangeInput.value = rate;
-//     }
-// }
+    if (target) {
+      const rate = [...evt.currentTarget.children].indexOf(target) + 1;
+      [...evt.currentTarget.children].forEach((el, i) => i <= rate - 1 ? el.classList.add('is-rated') : el.classList.remove('is-rated')
+      );
+      refs.modalRatingValue.textContent = rate.toFixed(1);
+      refs.ratingRangeInput.value = rate;
+    }
+}
 // async function SubmitRatingStar(evt) {
 //     evt.preventDefault();
 //     const data = {
@@ -43,10 +43,8 @@ refs.closeModalRating.addEventListener('click', closeModalRating)
 //   }
 
 
-function CloseRateModal() {
-    
-  }
- 
+
+
   
 
 function valiDateEmail(email) {
@@ -63,4 +61,21 @@ function checkMailInputs() {
       refs.modalRatingSend.disabled = false;
     }
   }
-  
+  function restoreForm() {
+    [...refs.modalRatingList.children].forEach(el =>
+      el.classList.remove('is-rated')
+    );
+    refs.rateEmail.style.borderColor = '';
+    refs.modalRatingSend.disabled = true;
+    refs.modalRatingValue.textContent = '0.0';
+    refs.modalRatingForm.dataset.id = '';
+    refs.modalRatingForm.reset();
+  }
+
+//   ============================
+refs.modalRating.classList.remove('is-hidden-modal');
+
+refs.closeModalRating.addEventListener('click', CloseRateModal); //1
+refs.modalRatingList.addEventListener('click', GiveRate); //2
+refs.ratingEmailInput.addEventListener('input', checkRateInputs); //3
+refs.modalRatingForm.addEventListener('submit', SubmitRate); //4
