@@ -1,0 +1,1 @@
+{"mappings":"gfAAAA,EAAA,SCAAA,EAAA,S","sources":["src/favorites.js","src/js/utils/fav_list.js"],"sourcesContent":["import './js/utils/mobile-menu';\nimport './js/utils/fav_list';","import renderItem from '../renders/renders';\nimport startPagination from './pagination';\n\n"],"names":["parcelRequire"],"version":3,"file":"favorites.71bd7a2b.js.map"}
