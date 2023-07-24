@@ -1,10 +1,8 @@
 import debounce from 'lodash.debounce';
 import { searchOnTitle } from '../service/categorySearch';
 import Notiflix, { Loading } from 'notiflix';
-
 import renderItem from './renders';
 import startPagination from '../utils/pagination';
-// import { changeThemePagination } from '../utils/switchTheme';
 import { OpenModal } from '../utils/modal-recipes';
 import { setActiveClass, onClickAllCategoriesButton } from '../utils/scrollbar';
 import { fetchAreaRecipes, fetchIngredientsRecipes } from '../service/API.js';
@@ -30,15 +28,7 @@ document.querySelector(".clear-button").addEventListener("click", function ({tar
   onClickAllCategoriesButton(target);
 });
 
-
-
-
-
-// Vars
-
 let prevSearch = '';
-let searchQuery = '';
-
 let query = '';
 let time = '';
 let ingredient = '';
@@ -46,11 +36,6 @@ let area = '';
 
 const DEBOUNCE_DELAY = 300;
 
-/**
-  |============================
-  | Base Fetch
-  |============================
-*/
 
 searchImagesAndDisplay();
 
@@ -84,12 +69,6 @@ export function hendleClickOnRecipes({ target }) {
 }
 
 recipeContainer.addEventListener('click', hendleClickOnRecipes);
-
-/**
-  |============================
-  | Filters
-  |============================
-*/
 
 async function generatAreaFiltersMarkup() {
   try {
@@ -138,9 +117,6 @@ function addAreaFilters(markup) {
   areaSelect.insertAdjacentHTML('beforeend', markup);
 }
 
-// function addIngridientsFilters(markup) {
-//   ingredSelect.innerHTML = `<option value="">&nbsp;</option>` + markup;
-// }
 
 function addIngridientsFilters(markup) {
 ingredSelect.insertAdjacentHTML('beforeend', markup);
@@ -243,7 +219,6 @@ export async function searchImagesAndDisplay(
     ingredSelect.firstElementChild.removeAttribute('selected', 'selected');
 
     hideSpinner();
-    // changeThemePagination();
   }
 }
 export function setSearchQueryName(name = '') {
