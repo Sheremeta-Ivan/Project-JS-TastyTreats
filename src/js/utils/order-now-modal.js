@@ -1,136 +1,58 @@
-import Notiflix from 'notiflix';
-
 const refs = {
-  form: document.querySelector('.js-order-form'),
-
-  inputs: document.querySelectorAll('.order-now-input'),
-  inputName: document.querySelector('.js-input-name'),
-  inputTel: document.querySelector('.js-input-tel'),
-  inputEmail: document.querySelector('.js-input-email'),
-  inputComment: document.querySelector('.js-input-comment'),
-
-  btn: document.querySelector('.js-order-btn'),
-  btnsOpen: document.querySelectorAll('.js-open-order'),
-
-  backdrop: document.querySelector('.backdrop-recipes'),
+  openModalBtn: document.querySelector('.shopping-link'),
+  openModalBtnHero: document.querySelector('.btn-hero'),
+  closeModalBtn: document.querySelector('.order-modal-close-btn'),
+  backdrop: document.querySelector('.backdrop-order'),
+  modal: document.querySelector('.modal-order'),
+  forma: document.querySelector('.modal-form-order'),
 };
+try {
+  refs.openModalBtnHero.addEventListener('click', openModalOpen);
+} catch (error) {}
 
-function submitForm(e) {
+refs.openModalBtn.addEventListener('click', openModalOpen);
+refs.closeModalBtn.addEventListener('click', closeModalClose);
+refs.backdrop.addEventListener('click', clickBackdropClick);
+
+refs.forma.addEventListener('submit', sendOrder);
+function sendOrder(e) {
   e.preventDefault();
+  const { name, tel, email, comment } = e.currentTarget;
+  const result = {
+    name: name.value,
+    tel: tel.value,
+    email: email.value,
+    comment: comment.value,
+  };
 
-  console.log({
-    name: refs.inputName.value,
-    tel: refs.inputTel.value,
-    email: refs.inputEmail.value,
-    comment: refs.inputComment.value,
-  });
-
-  Notiflix.Notify.success(
-    `Hi, ${refs.inputName.value}. Please confirm the order by email: ${refs.inputEmail.value}`
-  );
-
-  refs.inputName.style.borderColor = '';
-  refs.inputEmail.style.borderColor = '';
-  refs.inputTel.style.borderColor = '';
-
-  e.target.reset();
-
-  addClassHidden();
-  removeListeners();
+  console.log(result);
+  e.currentTarget.reset();
+  closeModalClose();
 }
 
-function checkInput() {
-  let validateName = false;
-  let validateEmail = false;
-  let validateTel = false;
-  if (!isValidName(refs.inputName.value)) {
-    refs.inputName.style.borderColor = '#b83245';
-  } else {
-    refs.inputName.style.borderColor = '#9bb537';
-    validateName = true;
-  }
-
-  if (!isValidEmail(refs.inputEmail.value)) {
-    refs.inputEmail.style.borderColor = '#b83245';
-  } else {
-    refs.inputEmail.style.borderColor = '#9bb537';
-    validateEmail = true;
-  }
-
-  if (!isValidPhone(refs.inputTel.value)) {
-    refs.inputTel.style.borderColor = '#b83245';
-  } else {
-    refs.inputTel.style.borderColor = '#9bb537';
-    validateTel = true;
-  }
-
-  if (validateName && validateEmail && validateTel) {
-    refs.btn.disabled = false;
-  } else refs.btn.disabled = true;
+function openModalOpen() {
+  window.addEventListener('keydown', onEscPress);
+  document.body.classList.add('overflowHidden');
+  refs.backdrop.classList.add('active');
+  refs.modal.classList.add('active');
 }
 
-function isValidName(name) {
-  const regex = /^[a-zA-Zа-яА-Я\s]{2,30}$/;
-  return regex.test(name);
+function closeModalClose() {
+  document.body.classList.remove('overflowHidden');
+  window.removeEventListener('keydown', onEscPress);
+  document.body.classList.remove('overflowHidden');
+  refs.backdrop.classList.remove('active');
+  refs.modal.classList.remove('active');
 }
 
-export function isValidEmail(email) {
-  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return regex.test(email);
-}
-
-function isValidPhone(phone) {
-  const regex = /^\d{10}$/;
-  return regex.test(phone);
-}
-
-function openModalOrder() {
-  removeClassHidden();
-
-  refs.backdrop.addEventListener('click', closeModalHandler);
-  window.addEventListener('keydown', onKeydownCloseModalHandler);
-}
-
-function onKeydownCloseModalHandler({ code }) {
-  if (code === 'Escape') {
-    addClassHidden();
-    removeListeners();
-    return;
+function clickBackdropClick(e) {
+  if (e.currentTarget === e.target) {
+    closeModalClose();
   }
 }
 
-function removeClassHidden() {
-  refs.backdrop.classList.remove('is-hidden-modal');
-  refs.form.classList.remove('is-hidden-modal');
-  toggleScroll();
-}
-
-function addClassHidden() {
-  refs.backdrop.classList.add('is-hidden-modal');
-  refs.form.classList.add('is-hidden-modal');
-  toggleScroll();
-}
-
-function closeModalHandler({ currentTarget, target }) {
-  if (currentTarget === target || target.closest('.close-modal')) {
-    addClassHidden();
-    removeListeners();
-    return;
+function onEscPress(e) {
+  if (e.code === 'Escape') {
+    closeModalClose();
   }
 }
-
-function removeListeners() {
-  refs.backdrop.removeEventListener('click', closeModalHandler);
-  window.removeEventListener('keydown', onKeydownCloseModalHandler);
-}
-
-function toggleScroll() {
-  const body = document.body;
-  body.classList.toggle('overflow-hidden');
-}
-
-refs.inputs.forEach(el => el.addEventListener('input', checkInput));
-
-refs.form.addEventListener('submit', submitForm);
-
-refs.btnsOpen.forEach(el => el.addEventListener('click', openModalOrder));
