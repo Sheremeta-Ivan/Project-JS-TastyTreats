@@ -6,9 +6,9 @@
   pointer-events: none;
   transition: opacity 250ms linear, visibility 250ms linear;
 }
-.overflow-hidden {
+/* .overflow-hidden {
   overflow: hidden;
-}
+} */
 /* .backdrop-rating{
   position: fixed;
   z-index: 2;
