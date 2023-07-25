@@ -8,6 +8,7 @@ import startPagination from '../utils/pagination';
 import { OpenModal } from '../utils/modal-recipes';
 import { setActiveClass, onClickAllCategoriesButton } from '../utils/scrollbar';
 import { fetchAreaRecipes, fetchIngredientsRecipes } from '../service/API.js';
+import { reduce } from 'lodash';
 
 // Refs
 
@@ -30,8 +31,14 @@ document.querySelector(".clear-button").addEventListener("click", function ({tar
   onClickAllCategoriesButton(target);
 });
 
-
-
+//Search icon chenge color
+const searchIcon = document.querySelector('.search-icon');
+searchInput.addEventListener('focus', () => {
+  searchIcon.classList.add('active');
+});
+searchInput.addEventListener('blur', () => {
+  searchIcon.classList.remove('active');
+});
 
 
 // Vars
@@ -264,3 +271,11 @@ function toggleFavriteRecipe(currentBtn) {
     );
   }
 }
+
+
+
+
+
+
+
+

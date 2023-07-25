@@ -258,3 +258,7 @@
     z-index: 1;
   }
 }
+
+.search-icon.active {
+  fill: var(--accent-color);
+}
