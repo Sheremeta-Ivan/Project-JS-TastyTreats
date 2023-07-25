@@ -258,6 +258,7 @@
 }
 .search-icon.active {
   fill: var(--accent-color);
+}
 
 .cancel-button-input {
   position: absolute;
