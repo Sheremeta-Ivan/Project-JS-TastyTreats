@@ -92,10 +92,8 @@ async function SubmitRate(e) {
     rate: Number(e.target.elements['raiting-star'].value),
     email: e.target.elements['email'].value,
   };
+  console.log(data);
   const id = refs.rateForm.dataset.id;
-
-  await patchRating(id, data);
-  Notiflix.Notify.success('Thank you for appreciating the recipe.');
 
   CloseModal();
 }
