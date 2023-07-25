@@ -17,16 +17,32 @@ const areaSelect = document.querySelector('.list-area');
 const ingredSelect = document.querySelector('.list-ingred');
 const filtersSection = document.querySelector('.input-section');
 const timeSelect = document.querySelector('.list-time');
-
+const cancelButton = document.querySelector('.cancel-button-input');
 
 // Clear form button
-document.querySelector(".clear-button").addEventListener("click", function ({target}) {
-  document.querySelector(".list-time").value = "";
-  document.querySelector(".search-input").value = "";
-  document.querySelector(".list-area").value = "";
-  document.querySelector(".list-ingred").value = "";
+document
+  .querySelector('.clear-button')
+  .addEventListener('click', function ({ target }) {
+    document.querySelector('.list-time').value = '';
+    document.querySelector('.search-input').value = '';
+    document.querySelector('.list-area').value = '';
+    document.querySelector('.list-ingred').value = '';
+    onClickAllCategoriesButton(target);
+  });
+//Очищення інпуту кнопкою
+searchInput.addEventListener('input', () => {
+  if (searchInput.value.trim() !== '') {
+    cancelButton.style.display = 'inline-block'; // Показати іконку
+  } else {
+    cancelButton.style.display = 'none'; // Приховати іконку
+  }
+});
+cancelButton.addEventListener('click', function ({ target }) {
+  searchInput.value = ''; // Очищення поля вводу
+  cancelButton.style.display = 'none'; // Приховати іконку після очищення
   onClickAllCategoriesButton(target);
 });
+
 
 let prevSearch = '';
 let query = '';
@@ -35,7 +51,6 @@ let ingredient = '';
 let area = '';
 
 const DEBOUNCE_DELAY = 300;
-
 
 searchImagesAndDisplay();
 
@@ -110,16 +125,14 @@ async function createIngredFilters() {
   try {
     const ingredMarkup = await generateIngredFiltersMarkup();
     addIngridientsFilters(ingredMarkup);
-
   } catch {}
 }
 function addAreaFilters(markup) {
   areaSelect.insertAdjacentHTML('beforeend', markup);
 }
 
-
 function addIngridientsFilters(markup) {
-ingredSelect.insertAdjacentHTML('beforeend', markup);
+  ingredSelect.insertAdjacentHTML('beforeend', markup);
 }
 
 const debouncedOnInpit = debounce(onInput, DEBOUNCE_DELAY);
@@ -128,6 +141,7 @@ filtersSection.addEventListener('input', debouncedOnInpit);
 
 function onInput(e) {
   const value = e.target.value;
+
   if (e.target.classList.contains('search-input')) {
     if (!value) return (searchInput.value = '');
 
@@ -148,7 +162,7 @@ function onInput(e) {
   setActiveClass();
   searchImagesAndDisplay();
 
-  console.log(query, area, time, ingredient);
+  // console.log(query, area, time, ingredient);
 }
 
 function customizeText(text) {
@@ -163,6 +177,7 @@ function showSpinner() {
 function hideSpinner() {
   spinner.style.display = 'none';
 }
+
 
 export async function searchImagesAndDisplay(
   currentPage = 1,
