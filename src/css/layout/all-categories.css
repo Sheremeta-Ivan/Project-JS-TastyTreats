@@ -15,10 +15,8 @@
   column-gap: 18px;
   width: 100%;
   padding: 0;
-  /* color: #05050580; */
   color: inherit;
   border: none;
-  /* background-color: white; */
   background-color: inherit;
   cursor: pointer;
   text-align: start;
@@ -30,9 +28,11 @@
   padding-bottom: 9px;
 }
 
+
 button.isUse {
   color: var(--accent-color);
 }
+
 
 .button-Allcategories:hover {
   background-color: var(--accent-color);
@@ -43,8 +43,6 @@ button.isUse {
 .button-Allcategories {
   cursor: pointer;
   margin-bottom: 48px;
-  /* background-color: var(--primary-white-color);
-  color: #05050580; */
   color: inherit;
   background-color: inherit;
   border-color: inherit;
@@ -55,7 +53,7 @@ button.isUse {
   border-radius: 15px;
   border-width: 1px;
   border-style: solid;
-  /* border: 1px solid #05050580; */
+  border: 1px solid #05050580;
 }
 
 @media screen and (max-width: 767px) {
@@ -87,10 +85,28 @@ button.isUse {
 }
 
 .button-Allcategories.isUse {
-  color: var(--accent-color);
-  border-color: var(--accent-color);
+  color: rgba(5, 5, 5, 0.5);
 }
 
 .button-Allcategories.isUse:hover {
   color: var(--primary-white-color);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+
+}
+/* Track */
+::-webkit-scrollbar-track {
+   background: rgba(5, 5, 5, 0.1);
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  background: rgba(5, 5, 5, 0.1);
+
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
