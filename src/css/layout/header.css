@@ -1,10 +1,8 @@
 .link {
   text-decoration: none;
 }
-/* .header-container {
-  padding-top: 20px;
-  padding-bottom: 20px;
-} */
+.header-container {
+}
 .nav-header {
   display: flex;
   align-items: center;
@@ -176,6 +174,10 @@
 @media screen and (max-width: 767px) {
   .nav-list {
     display: none;
+  }
+  .header-container {
+    width: 335px;
+    margin: 0 auto;
   }
   .theme-switcher.main {
     display: none;
