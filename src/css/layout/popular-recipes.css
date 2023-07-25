@@ -1,110 +1,111 @@
-.popular {
+.popular-recipes-container {
   width: 100%;
   display: block;
   padding-left: 0;
 }
 
 @media screen and (max-width: 767px) {
-  .popular {
+  .popular-recipes-container {
     width: 335px;
     margin: 0 auto;
-
     order: 3;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .popular {
+  .popular-recipes-container {
     width: 176px;
   }
 }
 @media screen and (min-width: 1280px) {
-  .popular {
+  .popular-recipes-container {
     width: 235px;
   }
 }
 
-h2 {
+.popular-recipes-title {
   text-transform: uppercase;
   text-align: left;
   font-size: 18px;
   margin-bottom: 40px;
+  color: var(--primaty-black-color);
 }
 
 @media screen and (min-width: 768px) {
-  h2 {
+  .popular-recipes-title {
     font-size: 18px;
     margin-bottom: 32px;
   }
 }
 
 @media screen and (min-width: 1280px) {
-  h2 {
+  .popular-recipes-title {
     font-size: 24px;
     margin-bottom: 40px;
   }
 }
 
-.popular-list {
+.popular-recipes-list {
   padding-left: 0;
 }
 
-.list-item {
+.popular-recipes-item {
   margin-bottom: 24px;
   display: flex;
   gap: 16px;
 }
 
-.popular-list .list-item {
+.popular-recipes-list .popular-recipes-item {
   cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
-  .list-item {
+  .popular-recipes-item {
     margin-bottom: 16px;
   }
 }
 
 @media screen and (min-width: 1280px) {
-  .list-item {
+  .popular-recipes-item {
     margin-bottom: 32px;
   }
 }
 
-.img-popular {
+.popular-recipes-image {
   width: 64px;
   height: 64px;
   border-radius: 8;
 }
 
 @media screen and (min-width: 768px) {
-  .img-popular {
+  .popular-recipes-image {
     width: 48px;
     height: 48px;
   }
 }
 
 @media screen and (min-width: 1110px) {
-  .img-popular {
+  .popular-recipes-image {
     width: 64px;
     height: 64px;
   }
 }
 
-.popular-text {
-  overflow: hidden;
-}
-
-.popular-title {
+.popular-recipes-item-title {
   font-size: 14px;
+  line-height: 1.3;
+  text-transform: uppercase;
+  color: var(--primaty-black-color);
+  font-weight: 600;
   margin-bottom: 8px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+  white-space: normal;
+  word-break: break-word;
 }
 
-.popular-desc {
+.popular-recipes-item-description {
   font-size: 12px;
+  line-height: 1.4;
+  color: var(--primaty-black-color);
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -112,7 +113,7 @@ h2 {
 }
 
 @media screen and (min-width: 768px) {
-  .popular-desc {
+  .popular-recipes-item-description {
     font-size: 10px;
     -webkit-line-clamp: 3;
   }

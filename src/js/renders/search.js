@@ -1,13 +1,12 @@
 import debounce from 'lodash.debounce';
 import { searchOnTitle } from '../service/categorySearch';
 import Notiflix, { Loading } from 'notiflix';
-
 import renderItem from './renders';
 import startPagination from '../utils/pagination';
-// import { changeThemePagination } from '../utils/switchTheme';
-// import { OpenModal } from '../utils/modal-recipes';
-import { setActiveClass } from '../utils/scrollbar';
+import { OpenModal } from '../utils/modal-recipes';
+import { setActiveClass, onClickAllCategoriesButton } from '../utils/scrollbar';
 import { fetchAreaRecipes, fetchIngredientsRecipes } from '../service/API.js';
+import { reduce } from 'lodash';
 
 // Refs
 
@@ -19,24 +18,52 @@ const areaSelect = document.querySelector('.list-area');
 const ingredSelect = document.querySelector('.list-ingred');
 const filtersSection = document.querySelector('.input-section');
 const timeSelect = document.querySelector('.list-time');
+const cancelButton = document.querySelector('.cancel-button-input');
+
+// Clear form button
+document
+  .querySelector('.clear-button')
+  .addEventListener('click', function ({ target }) {
+    document.querySelector('.list-time').value = '';
+    document.querySelector('.search-input').value = '';
+    document.querySelector('.list-area').value = '';
+    document.querySelector('.list-ingred').value = '';
+    onClickAllCategoriesButton(target);
+  });
+//Очищення інпуту кнопкою
+searchInput.addEventListener('input', () => {
+  if (searchInput.value.trim() !== '') {
+    cancelButton.style.display = 'inline-block'; // Показати іконку
+  } else {
+    cancelButton.style.display = 'none'; // Приховати іконку
+  }
+});
+cancelButton.addEventListener('click', function ({ target }) {
+  searchInput.value = ''; // Очищення поля вводу
+  cancelButton.style.display = 'none'; // Приховати іконку після очищення
+  onClickAllCategoriesButton(target);
+});
+
+
+//Search icon chenge color
+const searchIcon = document.querySelector('.search-icon');
+searchInput.addEventListener('focus', () => {
+  searchIcon.classList.add('active');
+});
+searchInput.addEventListener('blur', () => {
+  searchIcon.classList.remove('active');
+});
+
 
 // Vars
 
 let prevSearch = '';
-let searchQuery = '';
-
 let query = '';
 let time = '';
 let ingredient = '';
 let area = '';
 
 const DEBOUNCE_DELAY = 300;
-
-/**
-  |============================
-  | Base Fetch
-  |============================
-*/
 
 searchImagesAndDisplay();
 
@@ -71,18 +98,11 @@ export function hendleClickOnRecipes({ target }) {
 
 recipeContainer.addEventListener('click', hendleClickOnRecipes);
 
-/**
-  |============================
-  | Filters
-  |============================
-*/
-
 async function generatAreaFiltersMarkup() {
   try {
     const filtersArea = await fetchAreaRecipes();
     return filtersArea.reduce(
-      (markup, ivent) => markup + createAreaMarkupFilters(ivent),
-      ''
+      (markup, ivent) => markup + createAreaMarkupFilters(ivent)
     );
   } catch {}
 }
@@ -92,8 +112,7 @@ async function generateIngredFiltersMarkup() {
     const filtersIngred = await fetchIngredientsRecipes();
 
     return filtersIngred.reduce(
-      (markup, ivent) => markup + createIngredMarkupFilters(ivent),
-      ''
+      (markup, ivent) => markup + createIngredMarkupFilters(ivent)
     );
   } catch {}
 }
@@ -126,7 +145,7 @@ function addAreaFilters(markup) {
 }
 
 function addIngridientsFilters(markup) {
-  ingredSelect.innerHTML = `<option value="">&nbsp;</option>` + markup;
+  ingredSelect.insertAdjacentHTML('beforeend', markup);
 }
 
 const debouncedOnInpit = debounce(onInput, DEBOUNCE_DELAY);
@@ -135,6 +154,7 @@ filtersSection.addEventListener('input', debouncedOnInpit);
 
 function onInput(e) {
   const value = e.target.value;
+
   if (e.target.classList.contains('search-input')) {
     if (!value) return (searchInput.value = '');
 
@@ -155,7 +175,7 @@ function onInput(e) {
   setActiveClass();
   searchImagesAndDisplay();
 
-  console.log(query, area, time, ingredient);
+  // console.log(query, area, time, ingredient);
 }
 
 function customizeText(text) {
@@ -170,6 +190,7 @@ function showSpinner() {
 function hideSpinner() {
   spinner.style.display = 'none';
 }
+
 
 export async function searchImagesAndDisplay(
   currentPage = 1,
@@ -226,7 +247,6 @@ export async function searchImagesAndDisplay(
     ingredSelect.firstElementChild.removeAttribute('selected', 'selected');
 
     hideSpinner();
-    // changeThemePagination();
   }
 }
 export function setSearchQueryName(name = '') {
@@ -247,3 +267,11 @@ function toggleFavriteRecipe(currentBtn) {
     );
   }
 }
+
+
+
+
+
+
+
+
