@@ -13,20 +13,19 @@ const refs = {
   saveRecipeBtn: document.querySelector('.save-recipes-btn'),
   giveRatingBtn: document.querySelector('.give-rating-btn'),
   rateModal: document.querySelector('.modal-rating'),
-  closeRate: document.querySelector('.close-rate-modal'),
-  modalRateList: document.querySelector('.modal-rate-list'),
-  rateVal: document.querySelector('.rate-range-value'),
-  rateRage: document.querySelector('.rate-range-input'),
-  rateEmail: document.querySelector('.rate-email-input'),
-  rateForm: document.querySelector('.rate-form'),
-  sendRateBtn: document.querySelector('.send-rating-btn'),
+  closeRate: document.querySelector('.close-rating-modal'),
+  modalRateList: document.querySelector('.modal-rating-list'),
+  rateVal: document.querySelector('.modal-rating-span'),
+  rateRage: document.querySelector('.rating-range-input'),
+  rateEmail: document.querySelector('.rating-email-input'),
+  rateForm: document.querySelector('.modal-rating-form'),
+  sendRateBtn: document.querySelector('.modal-rating-send-btn'),
 };
-// open\close a modal window
 
 export function OpenModal(currentBtn) {
   refs.closeModalBtn.addEventListener('click', CloseModal);
   refs.backdropModal.addEventListener('click', CloseOnClick);
-  //   refs.giveRatingBtn.addEventListener('click', OpenRateModal);
+  refs.giveRatingBtn.addEventListener('click', OpenRateModal);
   window.addEventListener('keydown', CloseOnBtnClick);
 
   refs.backdropModal.classList.remove('is-hidden-modal');
@@ -49,83 +48,84 @@ export function OpenModal(currentBtn) {
   refs.saveRecipeBtn.addEventListener('click', AddToFav);
 }
 
-// function OpenRateModal() {
-//   refs.mainModalRecipes.classList.add('is-hidden-modal');
-//   refs.rateModal.classList.remove('is-hidden-modal');
+function OpenRateModal() {
+  refs.mainModalRecipes.classList.add('is-hidden-modal');
+  refs.rateModal.classList.remove('is-hidden-modal');
 
-//   //   refs.closeRate.addEventListener('click', CloseRateModal); //1
-//   refs.modalRateList.addEventListener('click', GiveRate); //2
-//   refs.rateEmail.addEventListener('input', checkRateInputs); //3
-//   refs.rateForm.addEventListener('submit', SubmitRate); //4
-// }
+  refs.closeRate.addEventListener('click', CloseRateModal); //1
+  refs.modalRateList.addEventListener('click', GiveRate); //2
+  refs.rateEmail.addEventListener('input', checkRateInputs); //3
+  refs.rateForm.addEventListener('submit', SubmitRate); //4
+}
 
-// function GiveRate(e) {
-//   const target = e.target.closest('.item-modal-star');
+function GiveRate(e) {
+  const target = e.target.closest('.modal-rating-star-item');
 
-//   if (target) {
-//     const rate = [...e.currentTarget.children].indexOf(target) + 1;
-//     [...e.currentTarget.children].forEach((el, i) =>
-//       i <= rate - 1
-//         ? el.classList.add('is-rated')
-//         : el.classList.remove('is-rated')
-//     );
-//     refs.rateVal.textContent = rate.toFixed(1);
-//     refs.rateRage.value = rate;
-//   }
-// }
+  if (target) {
+    const rate = [...e.currentTarget.children].indexOf(target) + 1;
+    [...e.currentTarget.children].forEach((el, i) =>
+      i <= rate - 1
+        ? el.classList.add('is-rated')
+        : el.classList.remove('is-rated')
+    );
+    refs.rateVal.textContent = rate.toFixed(1);
+    refs.rateRage.value = rate;
+  }
+}
+function isValidEmail(email) {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+}
+function checkRateInputs() {
+  if (!isValidEmail(refs.rateEmail.value)) {
+    refs.rateEmail.style.borderColor = '#b83245';
+    refs.sendRateBtn.disabled = true;
+  } else {
+    refs.rateEmail.style.borderColor = '#9bb537';
+    refs.sendRateBtn.disabled = false;
+  }
+}
 
-// function checkRateInputs() {
-//   if (!isValidEmail(refs.rateEmail.value)) {
-//     refs.rateEmail.style.borderColor = '#b83245';
-//     refs.sendRateBtn.disabled = true;
-//   } else {
-//     refs.rateEmail.style.borderColor = '#9bb537';
-//     refs.sendRateBtn.disabled = false;
-//   }
-// }
+async function SubmitRate(e) {
+  e.preventDefault();
+  const data = {
+    rate: Number(e.target.elements['raiting-star'].value),
+    email: e.target.elements['email'].value,
+  };
+  console.log(data);
+  const id = refs.rateForm.dataset.id;
 
-// async function SubmitRate(e) {
-//   e.preventDefault();
-//   const data = {
-//     rate: Number(e.target.elements['rating'].value),
-//     email: e.target.elements['email'].value,
-//   };
-//   const id = refs.rateForm.dataset.id;
+  CloseModal();
+}
 
-//   await patchRating(id, data);
-//   Notiflix.Notify.success('Thank you for appreciating the recipe.');
+function restoreForm() {
+  [...refs.modalRateList.children].forEach(el =>
+    el.classList.remove('is-rated')
+  );
 
-//   CloseModal();
-// }
+  refs.rateEmail.style.borderColor = '';
+  refs.sendRateBtn.disabled = true;
+  refs.rateVal.textContent = '0.0';
+  refs.rateForm.dataset.id = '';
+  refs.rateForm.reset();
+}
 
-// function restoreForm() {
-//   [...refs.modalRateList.children].forEach(el =>
-//     el.classList.remove('is-rated')
-//   );
+function CloseRateModal() {
+  refs.mainModalRecipes.classList.remove('is-hidden-modal');
+  refs.rateModal.classList.add('is-hidden-modal');
 
-//   refs.rateEmail.style.borderColor = '';
-//   refs.sendRateBtn.disabled = true;
-//   refs.rateVal.textContent = '0.0';
-//   refs.rateForm.dataset.id = '';
-//   refs.rateForm.reset();
-// }
-
-// function CloseRateModal() {
-//   refs.mainModalRecipes.classList.remove('is-hidden-modal');
-//   refs.rateModal.classList.add('is-hidden-modal');
-
-//   refs.closeRate.removeEventListener('click', CloseRateModal); //1
-//   refs.modalRateList.addEventListener('click', GiveRate); //2
-//   refs.rateEmail.addEventListener('input', checkRateInputs); //3
-//   refs.rateForm.addEventListener('submit', SubmitRate); //4
-// }
+  refs.closeRate.removeEventListener('click', CloseRateModal); //1
+  refs.modalRateList.addEventListener('click', GiveRate); //2
+  refs.rateEmail.addEventListener('input', checkRateInputs); //3
+  refs.rateForm.addEventListener('submit', SubmitRate); //4
+}
 
 function CloseModal() {
   removeListeners();
-  //   restoreForm();
+  restoreForm();
   refs.backdropModal.classList.add('is-hidden-modal');
   refs.mainModalRecipes.classList.add('is-hidden-modal');
-  //   refs.rateModal.classList.add('is-hidden-modal');
+  refs.rateModal.classList.add('is-hidden-modal');
   refs.modalRecipes.innerHTML = '';
   ToggleScroll();
 }
@@ -171,6 +171,8 @@ function CreateMarkup(data) {
   const tags = data.tags;
   let tagslist = '';
   if (!tags[0]) {
+    // document.querySelector(".recipe-tags").classList.add("is-hidden-modal");
+    // console.log('Zero');
   } else {
     for (let k = 0; k < tags.length; k++) {
       tagslist += `<li class="recipe-tag">#${tags[k]}</li>`;
@@ -265,12 +267,12 @@ function removeListeners() {
   refs.backdropModal.removeEventListener('click', CloseOnClick);
   refs.saveRecipeBtn.removeEventListener('click', AddToFav);
   // Rating Modal
-  //   refs.giveRatingBtn.removeEventListener('click', OpenRateModal);
-  //   refs.closeRate.removeEventListener('click', CloseRateModal);
+  refs.giveRatingBtn.removeEventListener('click', OpenRateModal);
+  refs.closeRate.removeEventListener('click', CloseRateModal);
 
-  //   refs.modalRateList.removeEventListener('click', GiveRate);
-  //   refs.rateEmail.removeEventListener('input', checkRateInputs);
-  //   refs.rateForm.removeEventListener('submit', SubmitRate);
-  // All
+  refs.modalRateList.removeEventListener('click', GiveRate);
+  refs.rateEmail.removeEventListener('input', checkRateInputs);
+  refs.rateForm.removeEventListener('submit', SubmitRate);
+
   window.removeEventListener('keydown', CloseOnBtnClick);
 }
