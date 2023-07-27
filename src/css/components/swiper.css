@@ -31,7 +31,6 @@
   width: 157px;
 }
 
-/* -------------Картка №1------------- */
 .swiper-master-cook-card {
   max-width: 100%;
   min-width: 0;
@@ -48,7 +47,6 @@
   object-fit: cover;
 }
 
-/* --------------Картка №2-------------- */
 .swiper-cook-center-card {
   min-width: 0;
   display: flex;
@@ -87,7 +85,7 @@
   line-height: 1.5;
 }
 
-/* ------------------Картка №3------------------ */
+
 .swiper-cook-big-card {
   display: flex;
   min-width: 0;
@@ -152,12 +150,12 @@
     margin-right: 16px;
   }
 
-  /* -------------Картка №1------------- */
+
   .swiper-master-cook-card {
     width: 137px;
     height: 442px;
   }
-  /* --------------Картка №2-------------- */
+
   .swiper-slide-img-center-card {
     width: 262px;
     height: 262px;
@@ -183,7 +181,6 @@
     margin-top: 8px;
     font-size: 12px;
   }
-  /* ------------------Картка №3------------------ */
   .swiper-cook-big-card {
     width: 351px;
     height: 442px;
