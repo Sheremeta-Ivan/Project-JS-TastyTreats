@@ -3,6 +3,7 @@ import { measureRating } from '../renders/renders';
 import { ratingScale } from '../renders/renders';
 import SmoothScrollbar from 'smooth-scrollbar';
 import Notiflix from 'notiflix';
+import { patchRating } from '../service/API';
 const refs = {
   closeModalBtn: document.querySelector('.close-modal'),
   backdropModal: document.querySelector('.backdrop-recipes'),
@@ -29,7 +30,7 @@ export function OpenModal(currentBtn) {
 
   refs.backdropModal.classList.remove('is-hidden-modal');
   refs.mainModalRecipes.classList.remove('is-hidden-modal');
-  //   refs.rateForm.dataset.id = currentBtn.dataset.id;
+  refs.rateForm.dataset.id = currentBtn.dataset.id;
   genereteRecipe(currentBtn.dataset.id);
   ToggleScroll();
 
@@ -91,8 +92,14 @@ async function SubmitRate(e) {
     rate: Number(e.target.elements['raiting-star'].value),
     email: e.target.elements['email'].value,
   };
-  console.log(data);
   const id = refs.rateForm.dataset.id;
+
+  try {
+    await patchRating(id, data);
+    Notiflix.Notify.success('Thank you for appreciating the recipe.');
+  } catch (error) {
+    Notiflix.Notify.failure(error.response.data.message || 'Rating has not been submited...');
+  }
 
   CloseModal();
 }
@@ -170,7 +177,6 @@ function CreateMarkup(data) {
   const tags = data.tags;
   let tagslist = '';
   if (!tags[0]) {
-
   } else {
     for (let k = 0; k < tags.length; k++) {
       tagslist += `<li class="recipe-tag">#${tags[k]}</li>`;
@@ -210,7 +216,6 @@ function addScrollbarText() {
   const scrollbar = SmoothScrollbar.init(scrollbarBox, {
     alwaysShowTracks: true,
   });
-  // scrollbarBox.appendChild(`<p class="recipe-instr">${instructions}</p>`);
 
   const scrollbarIngs = document.querySelector('.ingridients');
   const scrollbarSec = SmoothScrollbar.init(scrollbarIngs, {

@@ -33,5 +33,4 @@ renderPopularRecipes();
 function showPopularRecipeModal(event){
     const popularRecipeId = event.target.parentNode;
     OpenModal(popularRecipeId);
-    console.log(popularRecipeId)
 }
