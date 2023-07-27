@@ -39,9 +39,3 @@ export async function searchOnCategory(searchQuery, page) {
     throw new Error('An error occurred while fetching images.');
   }
 }
-
-
-// function () {
-
-//   axios.get("https://tasty-treats-backend.p.goit.global/api/recipes?category=&page=1&limit=6&time=&area=&ingredient=")
-// }

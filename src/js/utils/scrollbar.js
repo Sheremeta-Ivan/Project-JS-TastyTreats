@@ -19,16 +19,11 @@ async function createCategoriesBlock() {
   const categoriesContainer = document.getElementById('categoriesContainer');
   const scrollContent = categoriesContainer.querySelector('.scroll-content');
 
-  // Очищення контейнера перед додаванням категорій
+
   scrollContent.innerHTML = '';
-
-  // Отримання переліку категорій з бекенду
   const categories = await fetchCategories();
-
-  // Збереження посилань на кнопки категорій
   const categoryButtons = [];
 
-  // Створення кнопок категорій та додавання їх до контейнера
   categories.forEach(category => {
     const button = createCategoryButton(category.name, () => {
       setSearchQueryName(category.name);
@@ -48,30 +43,26 @@ async function createCategoriesBlock() {
     scrollContent.appendChild(button);
   });
 
-  // Ініціалізація scrollbar'у
 
   const scrollbar = SmoothScrollbar.init(categoriesContainer, {
     alwaysShowTracks: true,
   });
 }
 
-// Створення блоку з переліком категорій
+
 const categoriesContainer = document.getElementById('categoriesContainer');
 const scrollContent = document.createElement('div');
 scrollContent.className = 'scroll-content';
 categoriesContainer.appendChild(scrollContent);
 
-// // Додавання функціоналу кнопці "All categories"
+
 const allCategoriesButton = document.getElementById('allCategoriesButton');
 allCategoriesButton.addEventListener('click', onClickAllCategoriesButton);
 export function onClickAllCategoriesButton({ target }) {
-  // Виконати запит на бекенд для отримання рецептів всіх категорій
   setActiveClass(target);
   setSearchQueryName();
   recipeContainer.innerHTML = '';
   searchImagesAndDisplay(1, searchOnCategory);
-
-  // Зняти стилізацію з усіх кнопок категорій
   const categoryButtons = Array.from(
     document.querySelectorAll('.scroll-content button')
   );
@@ -80,10 +71,8 @@ export function onClickAllCategoriesButton({ target }) {
   });
 }
 
-// Створення блоку з переліком категорій
 createCategoriesBlock();
 
-// Export Foo
 
 export function setActiveClass(btn = allCategoriesButton) {
   const prevBtns = document.querySelectorAll('.isUse');
@@ -91,7 +80,6 @@ export function setActiveClass(btn = allCategoriesButton) {
   btn.classList.add('isUse');
 }
 
-// застосування scroll-up-Button
 document.addEventListener('DOMContentLoaded', function () {
   const el = document.getElementById('scrollButton');
   el.addEventListener('click', function () {

@@ -3,7 +3,6 @@ import { measureRating } from '../renders/renders';
 import { ratingScale } from '../renders/renders';
 import SmoothScrollbar from 'smooth-scrollbar';
 import Notiflix from 'notiflix';
-// import { isValidEmail } from './orderForm';
 const refs = {
   closeModalBtn: document.querySelector('.close-modal'),
   backdropModal: document.querySelector('.backdrop-recipes'),

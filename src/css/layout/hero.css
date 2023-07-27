@@ -5,6 +5,7 @@
 }
 
 .hero-heading {
+  color:#050505;
   font-size: 26px;
   font-style: normal;
   font-weight: 600;
@@ -36,6 +37,7 @@
 }
 
 .hero-order-btn {
+  cursor: pointer;
   margin-top: 28px;
   display: inline-flex;
   padding: 10px 20px;
