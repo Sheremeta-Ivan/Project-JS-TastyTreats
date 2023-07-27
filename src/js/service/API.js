@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+const API_URL = 'https://tasty-treats-backend.p.goit.global/api';
+
 export async function findMasterClasses() {
-  const url = `https://tasty-treats-backend.p.goit.global/api/events`;
+  const url = `${API_URL}/events`;
   const res = await axios.get(url);
   return res.data;
 }
@@ -9,7 +11,7 @@ export async function findMasterClasses() {
 export async function fetchCategories() {
   try {
     const response = await axios.get(
-      'https://tasty-treats-backend.p.goit.global/api/categories'
+      `${API_URL}/categories`
     );
     return response.data;
   } catch (error) {
@@ -19,7 +21,7 @@ export async function fetchCategories() {
 }
 
 export async function findRecipes(id) {
-  const url = `https://tasty-treats-backend.p.goit.global/api/recipes/${id}`;
+  const url = `${API_URL}/recipes/${id}`;
   const res = await axios.get(url);
   return res.data;
 }
@@ -27,7 +29,7 @@ export async function findRecipes(id) {
 
 export const getPopularRecipes = async function () {
   try {
-    const response = await axios.get( `https://tasty-treats-backend.p.goit.global/api/recipes/popular`);
+    const response = await axios.get( `${API_URL}/recipes/popular`);
     return response.data;
   } catch (error) {
     throw error;
@@ -35,18 +37,22 @@ export const getPopularRecipes = async function () {
 };
 
 export async function fetchAreaRecipes() {
-  const url = `https://tasty-treats-backend.p.goit.global/api/areas`;
+  const url = `${API_URL}/areas`;
   const res = await axios.get(url);
   return res.data;
 }
 
 export async function fetchIngredientsRecipes() {
-  const url = `https://tasty-treats-backend.p.goit.global/api/ingredients`;
+  const url = `${API_URL}/ingredients`;
   const res = await axios.get(url);
   return res.data;
 }
 
 export async function patchRating(id, data) {
-  const url = `https://tasty-treats-backend.p.goit.global/api/recipes/${id}/rating`;
+  const url = `${API_URL}/recipes/${id}/rating`;
   return await axios.patch(url, data);
+}
+
+export function postOrder(data) {
+  return axios.post(`${API_URL}/orders/add`, data);
 }
