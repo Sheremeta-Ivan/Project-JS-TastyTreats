@@ -1,5 +1,5 @@
-/* --primary-color 
---background-menu 
+/* --primary-color
+--background-menu
 --primary-color-03
 --primary-color-05
  --primary-color-02
@@ -24,6 +24,7 @@
   --background: #f8f8f8;
   --border-pag: #9bb537;
   --background-menu: #fff;
+  --option-color:#fff;
 }
 
 :root[data-theme='dark'] {
@@ -43,4 +44,5 @@
   --background-mob-menu: #050505;
   --border-pag: #9bb537;
   --background-menu: #050505;
+  --option-color:#050505;
 }
