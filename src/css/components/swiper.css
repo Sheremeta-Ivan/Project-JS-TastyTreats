@@ -4,12 +4,15 @@ body {
   margin: 0;
 }
 
+.swiper-pagination-bullet-active {
+  background-color: #9bb537 !important;
+}
 .swiper-container {
   margin-right: auto;
   margin-left: auto;
   max-width: 375px;
   margin-top: 58px;
-  padding-left: 20px;
+  margin-left: 165px;
 }
 
 .swiper {
@@ -25,6 +28,7 @@ body {
   overflow: hidden;
   display: flex !important;
   min-width: 0;
+  margin-bottom: 20px;
 }
 
 .swiper-img {
@@ -159,6 +163,7 @@ body {
   .swiper-img {
     margin-right: 16px;
   }
+
   /* -------------Картка №1------------- */
   .swiper-master-cook-card {
     width: 137px;
@@ -204,9 +209,5 @@ body {
 @media screen and (min-width: 1280px) {
   .container {
     max-width: 1280px;
-  }
-
-  .swiper-container {
-    margin-top: 0;
   }
 }
