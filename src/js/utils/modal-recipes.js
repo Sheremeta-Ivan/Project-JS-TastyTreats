@@ -94,6 +94,8 @@ async function SubmitRate(e) {
   };
   console.log(data);
   const id = refs.rateForm.dataset.id;
+  // await patchRating(id, data);
+  // Notiflix.Notify.success('Thank you for appreciating the recipe.');
 
   CloseModal();
 }
