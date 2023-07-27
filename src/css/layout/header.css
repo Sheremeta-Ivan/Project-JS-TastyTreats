@@ -20,7 +20,7 @@
   color: var(--accent-color);
 }
 .logo-color {
-  color: var(--primaty-black-color);
+  color: var(--primary-color);
 }
 .shopping-link {
   display: flex;
@@ -33,7 +33,7 @@
 }
 .shopping-icon {
   fill: transparent;
-  stroke: var(--primaty-black-color);
+  stroke: var(--primary-color);
 }
 .burger-menu {
   display: flex;
@@ -46,7 +46,7 @@
 .burger-menu-icon {
   width: 32px;
   height: 32px;
-  stroke: var(--primaty-black-color);
+  stroke: var(--primary-color);
 }
 .header-btn-box {
   display: flex;
@@ -133,7 +133,7 @@
   overflow-y: auto;
   opacity: 0;
   visibility: hidden;
-  background-color: var(--accent-color);
+  background-color: var(--background-mob-menu);
   z-index: 999;
   transition: opacity 250ms ease-in-out, visibility 250ms ease-in-out,
     transform 250ms ease-in-out;
@@ -205,10 +205,10 @@
     font-family: Inter;
     font-size: 12px;
     font-weight: 500;
-    color: var(--primaty-black-color);
+    color: var(--primary-color);
   }
   .nav-link.active.link {
-    color: var(--primaty-black-color);
+    color: var(--primary-color);
   }
   .shopping-icon:hover,
   .shopping-icon:focus {

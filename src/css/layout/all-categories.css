@@ -15,7 +15,7 @@
   column-gap: 18px;
   width: 100%;
   padding: 0;
-  color: inherit;
+  color: var(--primary-color-03);
   border: none;
   background-color: inherit;
   cursor: pointer;
@@ -51,7 +51,7 @@ button.isUse {
   border-radius: 15px;
   border-width: 1px;
   border-style: solid;
-  border: 1px solid #05050580;
+  border: 1px solid var(--primary-color-02);
 }
 
 @media screen and (max-width: 767px) {
@@ -83,7 +83,7 @@ button.isUse {
 }
 
 .button-Allcategories.isUse {
-  color: rgba(5, 5, 5, 0.5);
+  color: var(--primary-color-05);
 }
 
 .button-Allcategories.isUse:hover {

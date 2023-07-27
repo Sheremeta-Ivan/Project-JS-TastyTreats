@@ -46,7 +46,7 @@
   max-width: 100%;
   max-height: 100%;
   padding: 40px 20px;
-  background-color: #ffffff;
+  background-color: var(--background-menu);
   border-radius: 15px;
 
   opacity: 1;
@@ -89,7 +89,7 @@
   align-items: center;
 }
 .close-modal-ico {
-  stroke: #000000;
+  stroke: var(--primary-color);
   fill: rgba(5, 5, 5, 0.5);
 }
 @media screen and (min-width: 768px) {
@@ -185,7 +185,7 @@ button.give-rating-btn {
   line-height: 24px;
   letter-spacing: 0em;
   margin-bottom: 14px;
-  color: black;
+  color: var(--primary-color);
 }
 @media screen and (min-width: 768px) {
   .recipe-title-txt {
@@ -206,7 +206,7 @@ button.give-rating-btn {
   line-height: 18px;
   letter-spacing: 0em;
   text-align: left;
-  color: #05050580;
+  color: var(--primary-color-05);
   margin-bottom: 33px;
 }
 
@@ -248,8 +248,8 @@ button.give-rating-btn {
   font-weight: 400;
   line-height: 18px;
   letter-spacing: 0em;
-  color: var(--primary-black-color);
-  border-bottom: 1px solid #0505051a;
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--primary-color-01);
   padding-bottom: 6px;
 }
 
@@ -258,7 +258,7 @@ button.give-rating-btn {
 }
 
 .recipe-ps {
-  color: #05050580;
+  color: var(--primary-color-05);
 
   text-align: end;
 }
@@ -283,8 +283,8 @@ button.give-rating-btn {
 .recipe-tag {
   padding: 8px 16px 8px 16px;
   border-radius: 35px;
-  border: 1px solid #05050533;
-  color: var(--primary-black-color);
+  border: 1px solid var(--primary-color-02);
+  color: var(--primary-color);
   font-size: 12px;
   font-weight: 500;
   line-height: 14px;
@@ -301,7 +301,7 @@ button.give-rating-btn {
   height: 100px;
   overflow: hidden;
   padding-right: 15px;
-  color: rgba(5, 5, 5, 0.8);
+  color: var(--primary-color);
 }
 @media (min-width: 768px) {
   .recipe-instr {

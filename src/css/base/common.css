@@ -29,9 +29,9 @@
   --primary-dark-color: #1e1e1e;
 }
 
-body{
+body {
   font-family: 'Inter';
-color: rgba(5, 5, 5, 0.50);
+  background-color: var(--background);
 }
 * {
   box-sizing: border-box;
@@ -59,7 +59,7 @@ svg {
   stroke: currentColor;
 }
 
-button{
+button {
   cursor: pointer;
 }
 
@@ -108,4 +108,3 @@ button{
     max-height: 1244px;
   }
 }
-

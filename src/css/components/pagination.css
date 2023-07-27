@@ -5,6 +5,7 @@
 }
 
 #pagination .tui-page-btn {
+  color: var(--primary-color);
   padding: 12px 0;
   width: 44px;
   height: 44px;
@@ -20,7 +21,7 @@
   margin-right: 8px;
   background: var(--accent-color);
   border: var(--accent-color);
-  color: var(--primaty-black-color);
+  color: var(--primary-color);
 }
 
 #pagination.tui-pagination .tui-page-btn {

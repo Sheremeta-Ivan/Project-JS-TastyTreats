@@ -4,7 +4,7 @@
 }
 
 .search-label {
-  /* color: rgba(5, 5, 5, 0.5); */
+  color: var(--primary-color-05);
   font-size: 14px;
   font-family: Inter;
   font-weight: 500;
@@ -25,7 +25,7 @@
   top: 50%;
   left: 20px;
   transform: translateY(-50%);
-  color: inherit;
+  color: var(--primary-color-05);
 }
 
 .search-icon img {
@@ -37,9 +37,9 @@
 .list-time.list-filter,
 .list-area.list-filter,
 .list-ingred.list-filter {
-  color: inherit;
+  color: var(--primary-color-02);
   background-color: inherit;
-  border-color: inherit;
+  border-color: var(--primary-color-02);
 }
 
 .search-input {
@@ -48,13 +48,13 @@
   padding: 14px 18px 14px 48px;
   font-size: 16px;
   font-weight: 500;
-  color: inherit;
+  color: var(--primary-color-02);
   border-radius: 15px;
   border-width: 1px;
   border-style: solid;
   outline: none;
   box-sizing: border-box;
-
+  border-color: var(--primary-color-02);
   background-color: inherit;
 }
 
@@ -219,7 +219,7 @@
   border: none;
   background: none;
   margin-left: auto;
-  color: rgba(5, 5, 5, 0.5);
+  color: var(--primary-color-05);
   font-size: 12px;
   margin-bottom: 14px;
 }
