@@ -82,8 +82,7 @@ const generateStorageList = (pageSet = 1) => {
     const seeRecipeButtons = document.querySelectorAll('.item-rec');
     seeRecipeButtons.forEach(seeRecipeButton => {
       seeRecipeButton.addEventListener('click', () => {
-        const recipeId = seeRecipeButton.dataset.id; 
-        OpenModal(seeRecipeButton);  
+        OpenModal(seeRecipeButton);
       });
     });
 
@@ -211,11 +210,11 @@ const handleFavoriteButtonClick = (button) => {
         }
       });
 
-      
+
       const categoryButtons = refs.favoriteCategoriesList.querySelectorAll('.button-fav');
       categoryButtons.forEach(categoryButton => {
         if (categoryButton.textContent === removedRecipeCategory) {
-          categoryButton.remove(); 
+          categoryButton.remove();
         }
       });
     }
