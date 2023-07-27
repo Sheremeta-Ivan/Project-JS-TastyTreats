@@ -59,6 +59,9 @@ svg {
   stroke: currentColor;
 }
 
+button{
+  cursor: pointer;
+}
 
 .container {
   max-width: 375px;
