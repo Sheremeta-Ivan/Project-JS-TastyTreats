@@ -51,7 +51,7 @@
 .order-icon-close {
   display: inline-block;
   stroke-width: 0;
-  stroke: var(--primaty-black-color);
+  stroke: var(--primary-color);
 }
 
 .order-icon-close:hover,
