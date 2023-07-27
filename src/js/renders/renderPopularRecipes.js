@@ -1,6 +1,8 @@
 import { getPopularRecipes } from "../service/API";
+import { OpenModal } from "../utils/modal-recipes";
 
 export const popularRecipes = document.querySelector('.popular-recipes-list');
+popularRecipes.addEventListener('click', showPopularRecipeModal);
 
 async function renderPopularRecipes() {
   try {
@@ -13,9 +15,9 @@ async function renderPopularRecipes() {
 
 function createPopularRecipesList(data) {
   const markup = data.map((recipe) => {
-    return `<li class="popular-recipes-item">
+    return `<li class="popular-recipes-item data-id="${recipe._id}"">
       <img class="popular-recipes-image" src="${recipe.preview}" alt="${recipe.title}" />
-      <div>
+      <div data-id="${recipe._id}">
       <p class="popular-recipes-item-title">${recipe.title}</p>
       <p class="popular-recipes-item-description">${recipe.description}</p>
       </div>
@@ -26,3 +28,10 @@ function createPopularRecipesList(data) {
 }
 
 renderPopularRecipes();
+
+
+function showPopularRecipeModal(event){
+    const popularRecipeId = event.target.parentNode;
+    OpenModal(popularRecipeId);
+    console.log(popularRecipeId)
+}
