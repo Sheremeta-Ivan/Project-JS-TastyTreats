@@ -1,12 +1,10 @@
-.swiper-pagination-bullet-active {
-  background-color: #9bb537 !important;
-}
+
 .swiper-container {
   margin-right: auto;
   margin-left: auto;
   max-width: 375px;
   margin-top: 58px;
-  margin-left: 165px;
+  padding-left: 20px;
 }
 
 .swiper {
@@ -22,7 +20,7 @@
   overflow: hidden;
   display: flex !important;
   min-width: 0;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 .swiper-img {
@@ -32,6 +30,8 @@
 .swiper-slide-img {
   width: 157px;
 }
+
+/* -------------Картка №1------------- */
 .swiper-master-cook-card {
   max-width: 100%;
   min-width: 0;
@@ -41,11 +41,14 @@
   border-radius: 15px;
   background: #050505;
 }
+
 .cook-card {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
+/* --------------Картка №2-------------- */
 .swiper-cook-center-card {
   min-width: 0;
   display: flex;
@@ -83,6 +86,8 @@
   font-weight: 400;
   line-height: 1.5;
 }
+
+/* ------------------Картка №3------------------ */
 .swiper-cook-big-card {
   display: flex;
   min-width: 0;
@@ -129,6 +134,9 @@
   background: #050505;
   opacity: 1;
 }
+.swiper-pagination-bullet-active {
+  background-color: #9bb537 !important;
+}
 
 @media screen and (min-width: 768px) {
   .swiper {
@@ -143,10 +151,13 @@
   .swiper-img {
     margin-right: 16px;
   }
+
+  /* -------------Картка №1------------- */
   .swiper-master-cook-card {
     width: 137px;
     height: 442px;
   }
+  /* --------------Картка №2-------------- */
   .swiper-slide-img-center-card {
     width: 262px;
     height: 262px;
@@ -172,6 +183,7 @@
     margin-top: 8px;
     font-size: 12px;
   }
+  /* ------------------Картка №3------------------ */
   .swiper-cook-big-card {
     width: 351px;
     height: 442px;
