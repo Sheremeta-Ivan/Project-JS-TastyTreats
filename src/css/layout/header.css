@@ -1,8 +1,10 @@
 .link {
   text-decoration: none;
 }
-.header-container {
+.nav-link.current {
+  color: var(--accent-color);
 }
+
 .nav-header {
   display: flex;
   align-items: center;
@@ -211,8 +213,8 @@
     font-weight: 500;
     color: var(--primaty-black-color);
   }
-  .nav-link.current {
-    color: var(--accent-color);
+  .nav-link.active.link {
+    color: var(--primaty-black-color);
   }
   .shopping-icon:hover,
   .shopping-icon:focus {
@@ -220,7 +222,7 @@
     stroke: var(--accent-color);
   }
   .shopping-icon {
-    transition: transform 250ms ease-in-out;
+    transition: stroke 250ms ease-in-out;
   }
 
   .logo-header {
