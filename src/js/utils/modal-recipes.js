@@ -173,7 +173,6 @@ function CreateMarkup(data) {
   if (!tags[0]) {
     // document.querySelector(".recipe-tags").classList.add("is-hidden-modal");
     // console.log('Zero');
-  } else {
     for (let k = 0; k < tags.length; k++) {
       tagslist += `<li class="recipe-tag">#${tags[k]}</li>`;
     }
