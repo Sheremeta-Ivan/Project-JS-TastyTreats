@@ -18,7 +18,7 @@
 
 .modal-order {
   width: 335px;
-  background-color: var(--text-white-color);
+  background-color: var(--background-menu);
   padding: 28px 20px;
   border-radius: 15px;
   position: absolute;
@@ -87,7 +87,7 @@
   line-height: calc(22 / 18);
   display: block;
   text-transform: uppercase;
-  color: var(--primaty-black-color);
+  color: var(--primary-color);
   margin-bottom: 54px;
 }
 .contact-field-wrapper {
@@ -118,26 +118,26 @@
   position: absolute;
   top: -8px;
   transform: translateY(-100%);
-
   font-weight: 500;
   font-size: 14px;
   line-height: calc(18 / 14);
   display: block;
-  color: rgba(5, 5, 5, 0.5);
+  color: var(--primary-color-05);
 
   transition: 2000ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .input-field {
   display: block;
-  border: 1px solid rgba(5, 5, 5, 0.2);
+
+  border: 1px solid var(--primary-color-02);
   border-radius: 15px;
   font-weight: 500;
   font-size: 14px;
   line-height: calc(15 / 12);
   padding: 9px 26px 9px 11px;
-  color: var(--primaty-black-color);
-  background-color: var(--text-white-color);
+  color: var(--primaty-color);
+  background-color: var(--background-menu);
   width: 100%;
   outline: none;
   transition: border-color 2000ms cubic-bezier(0.4, 0, 0.2, 1);

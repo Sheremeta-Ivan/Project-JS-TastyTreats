@@ -10,3 +10,4 @@ import './js/renders/search.js';
 import './js/renders/renderPopularRecipes';
 import './js/utils/order-now-modal';
 import './js/utils/modal-recipes';
+import './js/utils/switcher';
