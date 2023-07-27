@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TastyTreats</title>
-    <link
-      rel="stylesheet"
-      href="../node_modules/modern-normalize/modern-normalize.css"
-    />
-    <link rel="icon" href="images/favicon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="./css/main.css" />
-    <script type="module" src="./index.js"></script>
-  </head>
-  <body>
-    <!-- partials -->
-    <include src="./partials/header.html"></include>
-    <div class="position-wrapper container">
-      <include src="./partials/all-categories.html"></include>
-      <include src="./partials/popular-recipes.html"></include>
-      <include src="./partials/search.html"></include>
-      <include src="./partials/order-now-modal.html"></include>
-    </div>
 
-    <div class="backdrop-recipes is-hidden-modal">
-      <include src="./partials/modal-recipes.html"></include>
-      <include src="./partials/rating.html"></include>
-    </div>
-    <button id="scrollButton" class="scroll-button">&#9650;</button>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TastyTreats</title>
+  <link rel="stylesheet" href="../node_modules/modern-normalize/modern-normalize.css" />
+  <link rel="icon" href="images/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="./css/main.css" />
+  <script type="module" src="./index.js"></script>
+</head>
+
+<body>
+  <!-- partials -->
+  <include src="./partials/header.html"></include>
+  <include src="./partials/hero.html"></include>
+  <div class="position-wrapper container">
+    <include src="./partials/all-categories.html"></include>
+    <include src="./partials/popular-recipes.html"></include>
+    <include src="./partials/search.html"></include>
+    <include src="./partials/order-now-modal.html"></include>
+  </div>
+
+  <div class="backdrop-recipes is-hidden-modal">
+    <include src="./partials/modal-recipes.html"></include>
+    <include src="./partials/rating.html"></include>
+  </div>
+  <button id="scrollButton" class="scroll-button">&#9650;</button>
+</body>
+
 </html>
