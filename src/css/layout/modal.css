@@ -35,6 +35,9 @@
   overflow-y: scroll;
   scrollbar-width: none;
 }
+.modal-recipes::-webkit-scrollbar {
+  width: 0;
+}
 .modal-recipes {
   position: fixed;
   top: 50%;
