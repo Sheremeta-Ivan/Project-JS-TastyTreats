@@ -6,9 +6,7 @@ import startPagination from '../utils/pagination';
 import { OpenModal } from '../utils/modal-recipes';
 import { setActiveClass, onClickAllCategoriesButton } from '../utils/scrollbar';
 import { fetchAreaRecipes, fetchIngredientsRecipes } from '../service/API.js';
-import { reduce } from 'lodash';
 
-// Refs
 
 const searchInput = document.querySelector('.search-input');
 export const recipeContainer = document.querySelector('#image-container');
@@ -20,7 +18,6 @@ const filtersSection = document.querySelector('.input-section');
 const timeSelect = document.querySelector('.list-time');
 const cancelButton = document.querySelector('.cancel-button-input');
 
-// Clear form button
 document
   .querySelector('.clear-button')
   .addEventListener('click', function ({ target }) {
@@ -55,7 +52,6 @@ searchInput.addEventListener('blur', () => {
 });
 
 
-// Vars
 
 let prevSearch = '';
 let query = '';
@@ -174,8 +170,6 @@ function onInput(e) {
 
   setActiveClass();
   searchImagesAndDisplay();
-
-  // console.log(query, area, time, ingredient);
 }
 
 function customizeText(text) {

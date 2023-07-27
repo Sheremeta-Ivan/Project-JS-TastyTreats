@@ -1,18 +1,10 @@
-/* -----------загальні налаштування слайдера----------- */
-body {
-  margin-right: 0;
-  margin: 0;
-}
 
-.swiper-pagination-bullet-active {
-  background-color: #9bb537 !important;
-}
 .swiper-container {
   margin-right: auto;
   margin-left: auto;
   max-width: 375px;
   margin-top: 58px;
-  margin-left: 165px;
+  padding-left: 20px;
 }
 
 .swiper {
@@ -28,7 +20,7 @@ body {
   overflow: hidden;
   display: flex !important;
   min-width: 0;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 .swiper-img {
@@ -49,11 +41,13 @@ body {
   border-radius: 15px;
   background: #050505;
 }
+
 .cook-card {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
 /* --------------Картка №2-------------- */
 .swiper-cook-center-card {
   min-width: 0;
@@ -92,6 +86,7 @@ body {
   font-weight: 400;
   line-height: 1.5;
 }
+
 /* ------------------Картка №3------------------ */
 .swiper-cook-big-card {
   display: flex;
@@ -140,14 +135,7 @@ body {
   opacity: 1;
 }
 .swiper-pagination-bullet-active {
-  background: #9bb537;
-}
-
-.dark-mode .swiper-pagination-bullet {
-  background: #fff;
-}
-.dark-mode .swiper-pagination-bullet-active {
-  background: #9bb537;
+  background-color: #9bb537 !important;
 }
 
 @media screen and (min-width: 768px) {

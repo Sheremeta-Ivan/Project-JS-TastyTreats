@@ -124,6 +124,7 @@ button.isUse {
   justify-content: center;
   align-items: center;
   transition: transform 0.3s;
+  z-index: 10000;
 }
 
 .scroll-button:hover,
