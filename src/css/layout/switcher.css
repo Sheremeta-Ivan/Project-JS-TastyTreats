@@ -46,3 +46,10 @@
   --background-menu: #050505;
   --option-color:#050505;
 }
+#pagination .move-button {
+  border-color: transparent;
+}
+
+#pagination .prev-button {
+  border-color: transparent;
+}
