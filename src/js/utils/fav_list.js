@@ -29,8 +29,7 @@ const groupObjects = (array, groupSize) => {
 
 const onFavoritesReload = () => {
   const categoryMarkup = generateCategoryList();
-
-  const allCatBtn = `<button class="button-fav all-btn onActive" name="all">All categories</button>`;
+  const allCatBtn = `<button class="button-fav all-btn" name="all">All categories</button>`;
 
   const data = JSON.parse(localStorage.getItem('favorites')) || [];
 
@@ -66,7 +65,16 @@ const generateStorageList = (pageSet = 1) => {
       refs.paginationBox.style.display = 'none';
     }
 
-    const listMarkup = objData[pageSet].reduce(
+    let filteredData;
+    if (currentCategory === '') {
+     
+      filteredData = data;
+    } else {
+     
+      filteredData = data.filter((recipe) => recipe.category === currentCategory);
+    }
+
+    const listMarkup = filteredData.reduce(
       (markup, { title, description, preview, rating, id, category }) =>
         markup + renderItem(title, description, preview, rating, id, category),
       ''
@@ -75,12 +83,12 @@ const generateStorageList = (pageSet = 1) => {
     refs.favoriteRecipesList.innerHTML = listMarkup;
 
     const favoriteButtons = document.querySelectorAll('.favorite-btn');
-    favoriteButtons.forEach(button => {
+    favoriteButtons.forEach((button) => {
       button.onclick = () => handleFavoriteButtonClick(button);
     });
 
     const seeRecipeButtons = document.querySelectorAll('.item-rec');
-    seeRecipeButtons.forEach(seeRecipeButton => {
+    seeRecipeButtons.forEach((seeRecipeButton) => {
       seeRecipeButton.addEventListener('click', () => {
         OpenModal(seeRecipeButton);
       });
@@ -90,12 +98,7 @@ const generateStorageList = (pageSet = 1) => {
   } else {
     refs.warning.classList.remove('is-hidden');
     refs.allBtn.classList.add('is-hidden');
-
-    // if (window.innerWidth < 768) {
-    //   refs.hiroImg.classList.add('is-hidden');
-    // }
   }
-
 
   if (data.length === 0) {
     refs.warning.classList.remove('is-hidden');
@@ -106,6 +109,7 @@ const generateStorageList = (pageSet = 1) => {
     refs.warning.classList.add('is-hidden');
   }
 };
+
 
 const generateCategoryList = () => {
   const storage = localStorage.getItem('favorites');
@@ -125,63 +129,33 @@ const generateCategoryList = () => {
 const renderCategory = (category) => `<button class="button-fav">${category}</button>`;
 
 const filterByCategory = (evt) => {
-  if (evt.target.classList.contains('onActive')) return;
+  if (evt.target.nodeName === 'BUTTON') {
+    if (evt.target.name === 'all') {
+      currentCategory = ''; 
+      setActiveClass(evt.target); 
+    } else {
+      currentCategory = evt.target.textContent; 
+      setActiveClass(evt.target); 
+    }
 
-  let data = [];
-  let categoryRecipes;
-  refs.favoriteRecipesList.innerHTML = '';
-
-  if (evt !== Number(evt) && evt.target.nodeName === 'BUTTON') {
-    setActiveClass(evt);
-    if (evt.target.name === 'all') return generateStorageList();
-    else currentCategory = evt.target.textContent;
+    generateStorageList();
   }
+};
 
-  const storage = localStorage.getItem('favorites');
-  data = JSON.parse(storage) || [];
+const setActiveClass = (targetButton) => {
+  const allCatBtn = document.querySelector('.all-btn');
+  const categoryButtons = document.querySelectorAll('.button-fav');
 
-  if (!data.length) {
-    refs.favoriteCategoriesList.style.display = 'none';
-    return;
-  }
-
-  categoryRecipes = [...data.filter((recipe) => recipe.category === currentCategory)];
-
-  let pageSet = 1;
-
-  if (Number(evt) === evt) pageSet = evt;
-
-  const perPage = calcPages();
-  const objData = groupObjects(categoryRecipes, perPage);
-  const totalPages = Object.keys(objData).length;
-
-  if (totalPages > 1) {
-    refs.paginationBox.style.display = 'block';
-    startPagination(pageSet, perPage, totalPages, filterByCategory);
-  } else {
-    refs.paginationBox.style.display = 'none';
-  }
-
-  const listMarkup = objData[pageSet].reduce(
-    (markup, { title, description, preview, rating, id, category }) =>
-      markup + renderItem(title, description, preview, rating, id, category),
-    ''
-  );
-
-  refs.favoriteRecipesList.innerHTML = listMarkup;
-
-  const favoriteButtons = document.querySelectorAll('.favorite-btn');
-  favoriteButtons.forEach(button => {
-    button.onclick = () => handleFavoriteButtonClick(button);
+  categoryButtons.forEach((button) => {
+    if (button === targetButton) {
+      button.classList.add('onActive');
+    } else {
+      button.classList.remove('onActive');
+    }
   });
-};
 
-const setActiveClass = (evt) => {
-  const activeBtn = document.querySelector('.onActive');
-  if (activeBtn) activeBtn.classList.remove('onActive');
-  evt.target.classList.add('onActive');
+  allCatBtn.classList.remove('onActive');
 };
-
 
 const handleFavoriteButtonClick = (button) => {
   const infoRecipe = JSON.parse(button.dataset.info);
