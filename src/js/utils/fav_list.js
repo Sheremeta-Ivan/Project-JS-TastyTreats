@@ -91,9 +91,9 @@ const generateStorageList = (pageSet = 1) => {
     refs.warning.classList.remove('is-hidden');
     refs.allBtn.classList.add('is-hidden');
 
-    if (window.innerWidth < 768) {
-      refs.hiroImg.classList.add('is-hidden');
-    }
+    // if (window.innerWidth < 768) {
+    //   refs.hiroImg.classList.add('is-hidden');
+    // }
   }
 
 
