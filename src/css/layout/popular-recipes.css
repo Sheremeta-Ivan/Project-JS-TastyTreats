@@ -105,7 +105,7 @@
 .popular-recipes-item-description {
   font-size: 12px;
   line-height: 1.4;
-  color: var(--primary-color);
+  color: var(--primary-color-08);
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;

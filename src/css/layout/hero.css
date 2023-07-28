@@ -26,6 +26,7 @@
 }
 
 .hero-description {
+  color: var(--primary-color);
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
@@ -38,6 +39,7 @@
 }
 
 .hero-order-btn {
+  color: var(--primary-color);
   display: inline-flex;
   padding: 10px 20px;
   justify-content: center;
