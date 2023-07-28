@@ -66,6 +66,7 @@
 .all-btn.onActive {
   color: var(--accent-color);
   border-color: var(--accent-color);
+  flex-shrink: 0;
 }
 
 .button-fav:hover {
@@ -92,10 +93,19 @@
   }
 
   .favorite-list .recipe-item {
-    margin-left: 0;
-    margin-right: 0;
     width: 224px;
     height: 244px;
+  }
+
+  .favorite-list .button.item-rec {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 7px;
+  
+  
+
   }
 
   .cook-hat {
@@ -146,7 +156,13 @@
     width: 258px;
     height: 287px;
   }
+
+    .favorite-list .button.item-rec{
+      margin-left: auto;
+    }
 }
+
+    
 
 /* Additional styles for hiding elements */
 .is-hidden {
