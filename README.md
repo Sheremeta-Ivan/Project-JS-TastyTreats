@@ -82,19 +82,19 @@ Development Tools:
     </td>
     <td align="center" style="border:none">
       <a href="https://parceljs.org/">
-          <img src="https://parceljs.org/avatar.b1be591d.avif" alt="Vite Logo" width="30" height="30" style="vertical-align: middle;">
-          <span style="font-size:1.17em; margin-left:10px">Vite</span>
+          <img src="https://parceljs.org/avatar.b1be591d.avif" alt="Parcel" width="30" height="30" style="vertical-align: middle;">
+          <span style="font-size:1.17em; margin-left:10px">Parcel</span>
       </a>
     </td>
     <td align="center" style="border:none">
       <a href="https://code.visualstudio.com/">
-          <img src="./src/img/readme-img/vscode.svg" alt="VS Code Logo" width="30" height="30" style="vertical-align: middle;">
+          <img src="https://logowik.com/content/uploads/images/visual-studio-code7642.jpg" alt="VS Code Logo" width="30" height="30" style="vertical-align: middle;">
           <span style="font-size:1.17em; margin-left:10px">VS Code</span>
       </a>
     </td>
     <td align="center" style="border:none">
       <a href="https://code.visualstudio.com/">
-          <img src="./src/img/readme-img/postman.svg" alt="VS Code Logo" width="50" height="50" style="vertical-align: middle;">
+          <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="Postman" width="50" height="50" style="vertical-align: middle;">
           <span style="font-size:1.17em; margin-left:10px">Postman</span>
       </a>
     </td>
@@ -105,13 +105,13 @@ Libraries and Frameworks:
   <tr>
     <td align="center" style="border:none">
       <a href="https://notiflix.github.io/">
-          <img src="./src/img/readme-img/notiflix-logo.svg" alt="Notiflix Logo" width="70" style="vertical-align: middle;">
+          <img src="https://avatars.githubusercontent.com/u/45588814?v=4" alt="Notiflix Logo" width="70" style="vertical-align: middle;">
           <span style="font-size:1.17em; margin-left:10px">Notiflix</span>
       </a>
     </td>
     <td align="center" style="border:none">
       <a href="https://swiperjs.com/">
-          <img src="./src/img/readme-img/swiper-logo.svg" alt="Swiper Logo" width="30"  style="vertical-align: middle;">
+          <img src="https://swiperjs.com/images/swiper-logo.svg" alt="Swiper Logo" width="30"  style="vertical-align: middle;">
           <span style="font-size:1.17em; margin-left:10px">Swiper</span>
       </a>
     </td>
@@ -145,13 +145,13 @@ Design and Project Management Tools:
   <tr>
     <td align="center" style="border:none">
       <a href="https://www.figma.com/">
-          <img src="./src/img/readme-img/figma_logo.svg" alt="Figma Logo" width="15"  style="vertical-align: middle;">
+          <img src="https://w7.pngwing.com/pngs/684/413/png-transparent-figma-logo-thumbnail-tech-companies.png" alt="Figma Logo" width="15"  style="vertical-align: middle;">
           <span style="font-size:1.17em; margin-left:10px">Figma</span>
       </a>
     </td>
     <td align="center" style="border:none">
       <a href="https://trello.com/">
-          <img src="./src/img/readme-img/trello-logo.svg" alt="Trello Logo" width="70"  style="vertical-align: middle;">
+          <img src="https://avatars.slack-edge.com/2021-07-19/2282472048054_9a51d280179d828b3ad7_512.png" alt="Trello Logo" width="70"  style="vertical-align: middle;">
           <span style="font-size:1.17em; margin-left:10px">Trello</span>
       </a>
     </td>
